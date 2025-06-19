@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AnyConnectPreferences>
+<DefaultUser>cs919730</DefaultUser>
+<DefaultSecondUser></DefaultSecondUser>
+<ClientCertificateThumbprint>DDDF164D2C5EE541BA7F2D8539FF425CFAE0A7F0</ClientCertificateThumbprint>
+<MultipleClientCertificateThumbprints></MultipleClientCertificateThumbprints>
+<ServerCertificateThumbprint></ServerCertificateThumbprint>
+<DefaultHostName>CareSource AnyConnect</DefaultHostName>
+<DefaultHostAddress></DefaultHostAddress>
+<DefaultGroup></DefaultGroup>
+<ProxyHost></ProxyHost>
+<ProxyPort></ProxyPort>
+<SDITokenType>none</SDITokenType>
+<ControllablePreferences></ControllablePreferences>
+</AnyConnectPreferences>
